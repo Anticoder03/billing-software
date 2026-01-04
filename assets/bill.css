@@ -1,0 +1,139 @@
+/* Print-friendly layout inspired by the provided bill design */
+
+:root {
+    --primary: #d11f1f;
+    --border: #1a4c7f;
+    --text: #222;
+    --muted: #666;
+}
+
+* { box-sizing: border-box; }
+body { font-family: Arial, Helvetica, sans-serif; color: var(--text); margin: 0; background: #fff; }
+
+.bill-wrap {
+    max-width: 1120px;
+    margin: 10px auto 40px;
+    border: 4px solid var(--border);
+    padding: 6px 6px 14px 6px;
+}
+
+.bill-top-bar {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    padding: 6px 8px;
+    border-bottom: 1px solid var(--border);
+}
+
+.bill-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 0 2px;
+}
+.brand-title {
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--primary);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.bill-subheader {
+    text-align: center;
+    font-size: 13px;
+    padding: 6px 8px 10px;
+    font-weight: 600;
+}
+
+.bill-meta {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 10px;
+    padding: 6px 8px;
+}
+.to-line {
+    border: 2px solid var(--border);
+    padding: 8px;
+    font-weight: bold;
+}
+.meta-box {
+    border: 2px solid var(--border);
+    padding: 8px;
+    font-size: 14px;
+}
+.meta-box > div { padding: 2px 0; }
+
+.bill-items {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+    border: 2px solid var(--border);
+}
+.bill-items thead th {
+    border: 1px solid var(--border);
+    padding: 6px;
+    font-size: 13px;
+}
+.bill-items tbody td {
+    border: 1px solid var(--border);
+    padding: 6px;
+    font-size: 13px;
+}
+.bill-items tfoot td {
+    border: 1px solid var(--border);
+    padding: 6px;
+    font-size: 14px;
+    background: #f9fbff;
+}
+
+.bill-remarks {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 8px;
+    align-items: start;
+    border-left: 2px solid var(--border);
+    border-right: 2px solid var(--border);
+    border-bottom: 2px solid var(--border);
+    padding: 8px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+.remarks-inline { font-weight: 600; }
+
+.bill-footer {
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 10px;
+    padding: 0 8px;
+}
+.bank { font-size: 14px; }
+.sign-company {
+    color: var(--primary);
+    font-weight: 700;
+    margin: 6px 0;
+}
+
+.bill-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 8px;
+}
+.bill-actions button {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+.bill-actions .back-link {
+    text-decoration: none;
+    color: var(--border);
+    font-weight: bold;
+}
+
+/* Print tweaks */
+@media print {
+    .bill-actions { display: none; }
+    .bill-wrap { border-width: 2px; margin: 0; }
+}
